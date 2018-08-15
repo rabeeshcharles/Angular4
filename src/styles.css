@@ -1,0 +1,263 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+
+
+/*Datepicker Css Code Start*/
+td.no-week-end>a{
+  background-color: #007bff80 !important;
+}
+/*Datepicker Css Code End*/
+
+/*Other Important Css Code Start*/
+.width-100-percent{
+  width: 100% !important;
+}
+.width-60-percent{
+  width: 60% !important;
+}
+.width-70-percent{
+  width: 70% !important;
+}
+.width-50-percent{
+  width: 50% !important;
+}
+.width-30-percent{
+  width: 30% !important;
+}
+.width-5-percent{
+  width: 5% !important;
+}
+.height-50-percent{
+  height: 50% !important;
+}
+
+.whitespace-preline{
+  white-space: pre-line;
+}
+.table-txt-overflow{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100px;
+}
+.overflow-auto{
+  overflow: auto !important;
+}
+.overflow-unset{
+  overflow: unset !important;
+}
+.table-layout-fixed{
+  table-layout: fixed;
+}
+.no-bg{
+  background: none !important;
+}
+.sanserif-font{
+  font-family: sans-serif !important;
+}
+.img-v-align-text-bottom{
+  vertical-align: text-bottom;
+}
+.img-v-align-middile{
+  vertical-align: middle;
+}
+.img-v-align-top{
+  vertical-align: top;
+}
+.img-v-align-bottom{
+  vertical-align: bottom;
+}
+.no-border{
+  border: 0 !important;
+}
+.no-outline{
+  outline: 0 !important;
+}
+.negative-margin-top-2{
+  margin-top: -2px !important;
+}
+.negative-margin-top-7{
+  margin-top: -7px !important;
+}
+.no-border-top{
+  border-top: 0 !important;
+}
+.no-border-right{
+  border-right: 0 !important;
+}
+.no-padding{
+  padding: 0 !important;
+}
+.padding-right-5{
+  padding-right: 5px !important;
+}.padding-right-10{
+   padding-right: 10px !important;
+ }.padding-right-15{
+    padding-right: 15px !important;
+  }
+.padding-left-5{
+  padding-left: 5px !important;
+}.padding-left-10{
+   padding-left: 10px !important;
+ }.padding-left-15{
+    padding-left: 15px !important;
+  }
+.padding-bottom-5{
+  padding-bottom: 5px !important;
+}.padding-bottom-10{
+   padding-bottom: 10px !important;
+ }.padding-bottom-15{
+    padding-bottom: 15px !important;
+  }
+.padding-bottom-20{
+  padding-bottom: 20px !important;
+}
+.padding-top-5{
+  padding-top: 5px !important;
+}.padding-top-10{
+   padding-top: 10px !important;
+ }.padding-top-12{
+    padding-top: 12px !important;
+  }.padding-top-15{
+     padding-top: 15px !important;
+   }
+.padding-top-20{
+  padding-top: 20px !important;
+}
+.padding-20{
+  padding: 20px !important;
+}
+.margin-left-4{
+  margin-left: 4px;
+}
+.border-style-solid{
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, .2);
+  border-radius: 4px;
+  padding: 4px 2px;
+  border: 1px solid #ccc;
+  height: 30px;
+}
+.no-border-bottom{
+  border-bottom: none !important;
+}
+.no-right-padding{
+  padding-right: 0 !important;
+}.no-bottom-padding{
+   padding-bottom: 0!important;
+ }.no-top-padding{
+    padding-top: 0!important;
+  }
+.no-left-padding{
+  padding-left: 0!important;
+}
+.cursor-pointer{
+  cursor: pointer!important;
+}
+.cursor-not-allow{
+  cursor:not-allowed;
+}
+.display-block{
+  display: block!important;
+}
+.display-inline{
+  display: inline!important;
+}
+.display-inline-block{
+  display: inline-block!important;
+}
+.display-table{
+  display: table !important;
+}
+.display-table-cell{
+  display: table-cell !important;
+}
+.display-flex{
+  display: flex!important;
+}
+.ui-bar.ui-bar-a.no-bg{
+  background: none !important;
+}
+.txt-over-flow1{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.font-size-16-px{
+  font-size: 16px !important;
+}.font-size-18-px{
+   font-size: 18px !important;
+ }
+.font-size-20-px{
+  font-size: 20px !important;
+}
+.font-color-dark{
+  color: #090100 !important;
+}
+.txt-align-left{
+  text-align: left !important;
+}.txt-align-center{
+   text-align: center !important;
+ }.txt-align-right{
+    text-align: right !important;
+  }
+.no-margin{
+  margin: 0 !important;
+}
+.no-right-margin{
+  margin-right: 0 !important;
+}
+.margin-left-5-percent{
+  margin-left: 5% !important;
+}
+.margin-bottom-4-em{
+  margin-bottom: 4em !important;
+}
+.margin-top-10{
+  margin-top: 10px !important;
+}.margin-top-15{
+   margin-top: 15px !important;
+ }.margin-top-20{
+    margin-top: 20px !important;
+  }.margin-top-30{
+     margin-top: 30px !important;
+   }.margin-bottom-30{
+      margin-bottom: 30px !important;
+    }.margin-bottom-20{
+       margin-bottom: 20px !important;
+     }.margin-bottom-15{
+        margin-bottom: 15px !important;
+      }.margin-bottom-10{
+         margin-bottom: 10px !important;
+       }
+.margin-right-10{
+  margin-right: 10px !important;
+}
+.no-left-margin{
+  margin-left: 0;
+}
+.no-bottom-margin{
+  margin-bottom: 0 !important;
+}
+/*Height Code Start*/
+.height-50-px{
+  height: 50px;
+}
+/*Height Code End*/
+
+/*Font color Start*/
+
+.font-color-white{
+  color : white
+}
+/*Font color End*/
+
+.text-decoration-none{
+  text-decoration: none;
+}
+.cursor-pointer{
+  cursor: pointer;
+}
+
+/*Other Important Css Code End*/
+
