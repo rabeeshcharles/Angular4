@@ -1,0 +1,10 @@
+.main-content-width{
+  width: calc(100% - 200px);
+  float: left;
+  background-color: #e9ecef;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  clear: left;
+  padding: 15px;
+}

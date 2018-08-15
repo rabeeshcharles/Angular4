@@ -1,0 +1,15 @@
+.sidebarWidth{
+  width: 200px;
+  position: fixed;
+  height: 100%;
+  right: 0;
+  background-color: #475763;
+}
+.sidebar-width-menu{
+  padding: 10px;
+  color: white;
+}
+.sidebar-width-menu.active{
+  background-color: darkgreen;
+  color: white;
+}
