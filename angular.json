@@ -26,6 +26,7 @@
               "src/lib/jquery-ui-1.12.1.custom/jquery-ui.css",
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "node_modules/fullcalendar/dist/fullcalendar.css",
+              "node_modules/literallycanvas/lib/css/literallycanvas.css",
               "src/styles.css"
             ],
             "scripts": [
@@ -33,6 +34,8 @@
               "node_modules/moment/moment.js",
               "node_modules/fullcalendar/dist/fullcalendar.js",
               "node_modules/bootstrap/dist/js/bootstrap.js",
+              "node_modules/html2canvas/dist/html2canvas.min.js",
+              "node_modules/literallycanvas/lib/js/literallycanvas-core.min.js",
               "src/lib/jquery-ui-1.12.1.custom/jquery-ui.js"
             ]
           },
