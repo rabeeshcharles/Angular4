@@ -1,5 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
+/*For Littterally Canvas Code Start*/
+div.highchartCanvas > .lc-drawing > canvas {
+  z-index: 101;
+}
+.literally {
+  background-color: transparent !important;
+}
+/*For Littterally Canvas Code End*/
+
 /*Datepicker Css Code Start*/
 td.no-week-end > a {
   background-color: #007bff80 !important;
@@ -8,6 +17,9 @@ td.no-week-end > a {
 /*Datepicker Css Code End*/
 
 /*Other Important Css Code Start*/
+.z-index-101{
+  z-index: 101;
+}
 .width-100-percent {
   width: 100% !important;
 }

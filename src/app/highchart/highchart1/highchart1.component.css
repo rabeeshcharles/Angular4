@@ -1,0 +1,5 @@
+.tool-set,.canvas-content{
+  left: 50%;
+  transform: translateX(calc(calc(-50% - 100px)));
+}
+

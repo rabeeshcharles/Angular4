@@ -1,18 +1,52 @@
-<div  #highchart></div>
-<!--canvas Tool Code Start-->
-<div>
-  <button id="rectangleTool" class="bg-success btn btn-sm font-color-white position-fixed right-side-200-px top-side-50-px">Rectangle</button>
-</div>
-<!--canvas Tool Code End-->
-<div id="canvas" class="canvas1">
-  <img crossorigin="anonymous" src="https://s3.ap-south-1.amazonaws.com/1234567890image/image/300+x+300+px.png.png"  alt="No Img access">
-</div>
-<div class="text-center">
-  <button class="btn btn-primary btn-lg" (click)="takeScreenshot();drawStart();">Screenshot</button>
+<div class="container-fluid">
+  <div class="position-relative captureThis" id="canvasMinHeight">
+    <div class="highchartCanvas">
+    </div>
+    <div class="position-absolute left-side-0 right-side-0 top-side-0" >
+      <div id="highchartHeight"  #highchart></div>
 
-</div><div>
-  <img src="{{imgSrc}}" alt="PLz Press the screenshot button">
-</div>
+    </div>
+  </div>
 
-<!--<div appSampleDirective>Look....My Color is Skyblue Now...</div>
-<input type="text" ngModel appInputValueDirective value="b">-->
+
+  <!--<div id="hig2" clss="position-absolute top-side-50-px" #highchart></div>-->
+
+  <!--canvas Tool Code Start-->
+  <div class="position-absolute top-side-0 tool-set z-index-101">
+    <table>
+      <tr>
+        <td>
+          <button id="rectangleTool" class="bg-success btn btn-sm font-color-white">Rectangle</button>
+        </td>
+        <td>
+          <button id="pencilTool" class="bg-success btn btn-sm font-color-white">Pencil</button>
+        </td>
+        <td>
+          <button id="ellipseTool" class="bg-success btn btn-sm font-color-white">Ellipse</button>
+        </td>
+        <td>
+          <button id="polygonTool" class="bg-success btn btn-sm font-color-white">Polygon</button>
+        </td>
+        <td>
+          <button id="eraserTool" class="bg-success btn btn-sm font-color-white">Eraser</button>
+        </td>
+        <td>
+          <button id="lineTool" class="bg-success btn btn-sm font-color-white">Line</button>
+        </td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+  <!--canvas Tool Code End-->
+  <div class="text-center margin-bottom-20 margin-top-20">
+    <button class="btn btn-primary btn-lg" (click)="takeScreenshot()">Screenshot</button>
+
+  </div>
+  <div>
+    <img src="{{imgSrc}}" alt="PLz Press the screenshot button">
+  </div>
+
+  <!--<div appSampleDirective>Look....My Color is Skyblue Now...</div>
+  <input type="text" ngModel appInputValueDirective value="b">-->
+
+</div>

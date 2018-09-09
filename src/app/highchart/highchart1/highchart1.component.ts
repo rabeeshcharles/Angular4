@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 
 import {chart} from 'highcharts';
 import {Chart} from 'highcharts';
@@ -16,7 +16,7 @@ declare let html2canvas: any;
   templateUrl: './highchart1.component.html',
   styleUrls: ['./highchart1.component.css']
 })
-export class Highchart1Component implements OnInit {
+export class Highchart1Component implements OnInit, AfterViewInit {
   constructor() {
   }
 
@@ -70,20 +70,54 @@ export class Highchart1Component implements OnInit {
   }
 
   drawStart() {
-    const lc = LC.init(document.getElementsByClassName('canvas1')[0], {});
+    const lc = LC.init(document.getElementsByClassName('highchartCanvas')[0], {});
 
     const tools = [
       {
-        name: 'rectangle',
+        name: 'Pencil',
+        element: $('#pencilTool')[0],
+        tool: new LC.tools.Pencil(lc),
+        color: 'black'
+      },
+      {
+        name: 'Line',
+        element: $('#lineTool')[0],
+        tool: new LC.tools.Line(lc),
+        color: 'red'
+      }
+      ,
+      {
+        name: 'Rectangle',
         element: $('#rectangleTool')[0],
         tool: new LC.tools.Rectangle(lc),
+        color: 'green',
+        bgColor : 'transparent'
+      }, {
+        name: 'Ellipse',
+        element: $('#ellipseTool')[0],
+        tool: new LC.tools.Ellipse(lc),
+        color: 'pink',
+        bgColor : 'transparent'
+      }, {
+        name: 'Polygon',
+        element: $('#polygonTool')[0],
+        tool: new LC.tools.Polygon(lc),
+        color: 'brown',
+        bgColor : 'transparent'
+      }, {
+        name: 'Eraser',
+        element: $('#eraserTool')[0],
+        tool: new LC.tools.Eraser(lc),
         color: 'red'
       }
     ];
 
     const activatingTheTool = (toolName) => {
       lc.setTool(toolName.tool);
+      lc.setColor('primary', toolName.color);
+      lc.setColor('secondary', toolName.bgColor);
       tools.forEach(function (t2) {
+        console.log('t20', t2);
         if (toolName === t2) {
           t2.element.style.backgroundColor = 'yellow';
         } else {
@@ -91,11 +125,15 @@ export class Highchart1Component implements OnInit {
         }
       });
     };
+    tools.forEach(function (t2) {
+      $(t2.element).click(() => {
+        activatingTheTool(t2);
+      });
+    });
     activatingTheTool(tools[0]);
   }
 
   ngOnInit() {
-
     $('.dPicker2').datepicker({
       beforeShowDay: (e) => {
         const selectedDate = $('.dPicker2').datepicker('getDate');
@@ -156,7 +194,7 @@ export class Highchart1Component implements OnInit {
 
   takeScreenshot() {
     // html2canvas(document.getElementById('canvas'), {
-    html2canvas($('#canvas')[0], {
+    html2canvas($('.captureThis')[0], {
       logging: true,
       allowTaint: false,
       useCORS: true
@@ -165,5 +203,18 @@ export class Highchart1Component implements OnInit {
 
       this.imgSrc = canvas.toDataURL();
     });
+  }
+
+// For Dynamically giving height Code Start
+  canvasHeightFunction() {
+    // $('#canvasMinHeight,canvas').height($('#highchartHeight').height() + 80);
+    // console.log('$(\'#canvasMinHeight\').height(', $('#canvasMinHeight').height());
+    // console.log('$(\'\').height(', $('#highchartHeight').height());
+  }
+
+// For Dynamically giving height Code End
+  ngAfterViewInit(): void {
+    this.drawStart();
+    // this.canvasHeightFunction();
   }
 }
