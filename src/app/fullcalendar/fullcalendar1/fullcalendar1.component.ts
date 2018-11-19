@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {AuthService} from '../../auth/auth.service';
 import {DatePipe} from '@angular/common';
+import * as firebase from 'firebase';
 
 declare let $: any;
 
@@ -15,7 +16,7 @@ export class Fullcalendar1Component implements OnInit {
 
   public inputDate: any = '';
   public inputDateModal: any;
-  private eventClickObject : any;
+  private eventClickObject: any;
   @Input() public eventSource: any
 
     = [{
@@ -41,44 +42,49 @@ export class Fullcalendar1Component implements OnInit {
     $('#editEventModalId').appendTo('body');
     const email = 'a@gmail.com';
     const pass = '123456';
-    /*if (!this.authService.isAuthenticated()) {
-      this.authService.signinUser(email, pass);
-      setTimeout(() => {
-        const token = this.authService.getToken();
-        this.http.get(this.URL + '/fullcalendar.json?auth=' + token).subscribe((e: any) => {
+    const p = new Promise((resolve, reject) => {
+      firebase.auth().signInWithEmailAndPassword(email, pass)
+        .then(() => {
+          resolve('success resolve');
+        })
+        .catch(() => {
+          reject('reject');
+        });
+    });
+    p.then((g) => {
+      console.log(g);
+      const token = this.authService.getToken();
+      const tokenPromise = new Promise((resolve, reject) => {
+        firebase.auth().currentUser.getIdToken().then((e) => {
+          resolve(e);
+        })
+          .catch(() => {
+            reject('fails');
+          });
+      });
+      tokenPromise.then((e) => {
+        console.log(e);
+
+        this.http.get(this.URL + '/fullcalendar.json?auth=' + e).subscribe((e: any) => {
           console.log('=====================================', e);
           this.eventSource = e;
-          /!*this.eventSource = $.map(e, function(item) {
-            console.log("item",item)
-            console.log("item",item.start)
-            return {
-              title: item. title,
-              start: item. start,
-              allDay: item.allDay
-            };
-          });*!/
-          console.log(this.eventSource);
-
           this.updatedSourceData();
-          // console.log(this.updatedSourceData());
-          // console.log(this.eventSource);
-
-
         });
-        // console.log(this.eventSource);
-        /!*this.http.put(this.URL + '/fullcalendar.json?auth=' + token,this.updatedSourceData()).subscribe((e) => {
-          console.log('+++++++++++++++++++', e);
-        });*!/
-      }, 10000);
+        console.log(this.eventSource);
+      });
 
-    }*/
+    })
+      .catch((f) => {
+        console.log(f);
+      });
+
     $('#inputDatepickerId').datepicker({
       dateFormat: 'yy-mm-dd'
-    });
-    $('#inputDatepickerId').datepicker().val(null)
+    })
+      .datepicker().val(null);
 
     $('#inputDatepickerIdModal').datepicker({
-      minDate : new Date(),
+      minDate: new Date(),
 
       onSelect: (e) => {
         console.log(e);
@@ -102,14 +108,14 @@ export class Fullcalendar1Component implements OnInit {
         // console.log(date.format());
       },
       eventClick: (e) => {
- this.eventClickObject = e
+        this.eventClickObject = e;
         $('#editEventModalId').modal('show');
         // Form For Modal
         setTimeout(() => {
           this.fullCalendarEventFormModal.controls['eventTitleModal'].setValue(e.title);
           // this.fullCalendarEventFormModal.controls['eventDateModal'].setValue(this.datePipe.transform(e.start, 'yy-mm-dd'));
           // console.log(this.datePipe.transform(e.start, 'yyyy-MM-dd'));
-          $('#inputDatepickerIdModal').datepicker().val(this.datePipe.transform(e.start, 'yyyy-MM-dd'))
+          $('#inputDatepickerIdModal').datepicker().val(this.datePipe.transform(e.start, 'yyyy-MM-dd'));
 
 
           // $('#inputDatepickerIdModal').val(this.datePipe.transform(e.start,'dd-MM-yyyy'))
@@ -125,16 +131,16 @@ export class Fullcalendar1Component implements OnInit {
 
 
   changeDate() {
-    let x = $('#inputDatepickerId').val();
+    const x = $('#inputDatepickerId').val();
     this.inputDate = x;
-    console.log(this.inputDate)
+    console.log(this.inputDate);
 
   }
 
   changeDateModal() {
     let y = $('#inputDatepickerIdModal').val();
     this.inputDateModal = y;
-    console.log(this.inputDateModal)
+    console.log(this.inputDateModal);
   }
 
   onSubmit() {
@@ -143,34 +149,34 @@ export class Fullcalendar1Component implements OnInit {
     // let y = x.valueOf()
     this.fullCalendarEventForm.controls['eventDate'].setValue(this.inputDate);
     this.updateSourceData(this.fullCalendarEventForm.value);
-    this.fullCalendarEventForm.reset()
+    this.fullCalendarEventForm.reset();
     // console.log(this.inputDate, this.fullCalendarEventForm);
   }
 
   onSubmitModal() {
-   let e = this.eventClickObject
+    let e = this.eventClickObject;
     console.log('this.fullCalendarEventFormModal.valid', this.fullCalendarEventFormModal.value);
     this.changeDateModal();
     this.fullCalendarEventFormModal.controls['eventDateModal'].setValue(this.inputDateModal);
 
     // e.title = this.fullCalendarEventFormModal.value.eventTitleModal
-    e.start = this.fullCalendarEventFormModal.value.eventDateModal
-    console.log(e)
+    e.start = this.fullCalendarEventFormModal.value.eventDateModal;
+    console.log(e);
     $('#fullCalendarId').fullCalendar('updateEvent', e);
-    $('#editEventModalId').modal('hide')
-    this.fullCalendarEventFormModal.reset()
+    $('#editEventModalId').modal('hide');
+    this.fullCalendarEventFormModal.reset();
 
     // let y = x.valueOf()
     // this.updateSourceDataModal(this.fullCalendarEventFormModal.value);
     // console.log(this.inputDate, this.fullCalendarEventForm);
   }
 
-  deleteEvent(){
-    let e = this.eventClickObject
-    console.log(e)
+  deleteEvent() {
+    let e = this.eventClickObject;
+    console.log(e);
 
     $('#fullCalendarId').fullCalendar('removeEvents', e._id);
-    this.fullCalendarEventFormModal.reset()
+    this.fullCalendarEventFormModal.reset();
     // $('#fullCalendarId').fullCalendar('refetchEventSources');
 
   }

@@ -28,12 +28,13 @@ export class AuthService {
               (token: string) => {
                 console.log('gettoken', token)
 
-                this.token = token}
+                this.token = token;
+              return true}
             );
         }
       )
       .catch(
-        error => console.log(error)
+        (error) => {return console.log(error)}
       );
   }
 
