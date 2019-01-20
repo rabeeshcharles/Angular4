@@ -13,5 +13,9 @@ export  const AppRoutes: Routes = [{
   }, {
     path : 'fullcalendar',
     loadChildren : './fullcalendar/fullcalendar.module#FullcalendarModule'
+  }, {
+    path : 'progressbar',
+    loadChildren : './progress-bar/progressbar.module#ProgressbarModule'
+
   }]
 }];

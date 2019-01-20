@@ -19,6 +19,9 @@ export class SidebarComponent implements OnInit {
     }, {
       title: 'Fullcalendar',
       url : '/fullcalendar'
+    }, {
+      title: 'Progressbar',
+      url : '/progressbar'
     }
   ];
   ngOnInit() {
